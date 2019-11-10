@@ -39,5 +39,8 @@
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "node-sass": "^4.13.0"
+  },
+  "dependencies": {
+    "particles.js": "^2.0.0"
   }
 }

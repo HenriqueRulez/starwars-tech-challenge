@@ -1,0 +1,18 @@
+ Users should also be able to tag starships in two ways: attach a mark to an entry (e.g. star), and freely assign tags.
+
+Starships should also be searchable by these tags.
+
+User input should be preserved for future visits.
+
+Optional: Allow the user to change the sort order of the starships.
+
+
+
+
+
+- criar readme
+- criar brenches -> comitar no master
+
+
+
+
