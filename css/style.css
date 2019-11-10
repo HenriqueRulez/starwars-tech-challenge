@@ -1,0 +1,116 @@
+/** reset **/
+html {
+  font-size: 62.5%;
+  font-family: 'IBM Plex Sans';
+  background: #000; }
+
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem; }
+
+a {
+  text-decoration: none; }
+
+/** canvas override**/
+canvas {
+  display: block;
+  position: fixed;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -1; }
+
+/** HERO **/
+.header {
+  display: flex;
+  justify-content: center; }
+  .header-logo {
+    margin: 20px 20px;
+    fill: red;
+    width: 15%;
+    min-width: 200px; }
+
+section {
+  display: flex;
+  justify-content: center; }
+
+.search-wrapper {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.search-header {
+  font-size: 2.8rem;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-color: red; }
+
+.search-box {
+  display: flex;
+  flex-direction: column; }
+  .search-box-input {
+    box-sizing: border-box;
+    width: 100%; }
+    .search-box-input > [type='text'] {
+      min-width: 80%;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      border-bottom: 2px solid red;
+      color: white;
+      padding: 6px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1); }
+  .search-box-parameters {
+    grid-row: 2 / 2;
+    grid-column: 1 / 1;
+    padding: 20px; }
+    .search-box-parameters > [type='radio'] {
+      display: inline; }
+      .search-box-parameters > [type='radio']:not(:checked), .search-box-parameters > [type='radio']:checked {
+        display: none; }
+    .search-box-parameters > span {
+      color: red;
+      font-size: 1.4rem; }
+    .search-box-parameters > div {
+      margin: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px; }
+    .search-box-parameters .mdc-radio + label {
+      cursor: pointer;
+      user-select: none;
+      font-size: 1.4rem;
+      margin-right: 10px;
+      color: white; }
+
+.ship-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  background: lime;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: white; }
+  .ship-card-upper {
+    display: flex;
+    justify-content: space-between; }
+    .ship-card-upper-id {
+      font-size: 0.8rem; }
+    .ship-card-upper-star {
+      font-size: 2rem;
+      color: red; }
+      .ship-card-upper-star::hover {
+        color: #ff9999; }
+  .ship-card-body {
+    align-self: center;
+    font-weight: 800;
+    font-size: 3rem; }
+    .ship-card-body::hover {
+      color: red; }

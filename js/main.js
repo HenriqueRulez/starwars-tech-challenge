@@ -1,1 +1,1 @@
-"use strict";console.log("dasdasdsd");
+"use strict";particlesJS.load("particles-js","particles.json");
