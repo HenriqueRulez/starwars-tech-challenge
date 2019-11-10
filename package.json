@@ -1,0 +1,43 @@
+{
+  "name": "starwars",
+  "version": "1.0.0",
+  "description": "tb-lx tech challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HenriqueRulez/starwars-tech-challenge.git"
+  },
+  "keywords": [
+    "star-wars",
+    "sw",
+    "tb-lx",
+    "challange"
+  ],
+  "author": "Pedro Ferreira",
+  "license": "SEE LICENSE IN <LICENSE>",
+  "bugs": {
+    "url": "https://github.com/HenriqueRulez/starwars-tech-challenge/issues"
+  },
+  "homepage": "https://github.com/HenriqueRulez/starwars-tech-challenge#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.7",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-vue": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.13.0"
+  }
+}
