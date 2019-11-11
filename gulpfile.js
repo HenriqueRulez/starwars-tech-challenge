@@ -9,6 +9,7 @@ const uglify = require('gulp-uglify');
 function compilaSassDev() {
   return gulp
     .src('scss/**/*.scss')
+    .pipe(concat('style.scss'))
     .pipe(sass())
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
@@ -17,6 +18,7 @@ function compilaSassDev() {
 function compilaSassProd() {
   return gulp
     .src('scss/**/*.scss')
+    .pipe(concat('style.scss'))
     .pipe(sass({ outputStyle: 'compressed' }))
     .pipe(
       autoprefixer({
@@ -52,7 +54,7 @@ function browser() {
 
 function watch() {
   gulp.watch('scss/**/*.scss', compilaSassDev);
-  gulp.watch(['js/**/*.js', '!js/main.js'], gulpJs);
+  gulp.watch(['js/**/*.js', '!js/main.js', '!js/vue.js'], gulpJs);
   gulp.watch(['*.html', '*.js']).on('change', browserSync.reload);
 }
 

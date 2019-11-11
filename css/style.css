@@ -4,6 +4,9 @@ html {
   font-family: 'IBM Plex Sans';
   background: #000; }
 
+::selection {
+  background-color: red; }
+
 body,
 ul,
 li,
@@ -47,7 +50,7 @@ section {
 .search-header {
   font-size: 2.8rem;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-width: 1.7px;
   -webkit-text-stroke-color: red; }
 
 .search-box {
@@ -61,11 +64,14 @@ section {
       width: 100%;
       border: 0;
       outline: 0;
-      border-bottom: 2px solid red;
+      border-bottom: 2px solid #cc3333;
       color: white;
       padding: 6px;
       border-radius: 6px;
       background: rgba(255, 255, 255, 0.1); }
+      .search-box-input > [type='text']:hover, .search-box-input > [type='text']:focus {
+        border-bottom: 2px solid red;
+        transition: 0.4s ease-in-out; }
   .search-box-parameters {
     grid-row: 2 / 2;
     grid-column: 1 / 1;
@@ -88,29 +94,275 @@ section {
       margin-right: 10px;
       color: white; }
 
-.ship-card {
-  cursor: pointer;
-  display: flex;
+.ship {
   flex-direction: column;
-  width: 800px;
-  background: lime;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  color: white; }
-  .ship-card-upper {
+  align-items: center; }
+  .ship-card {
+    cursor: pointer;
     display: flex;
-    justify-content: space-between; }
-    .ship-card-upper-id {
-      font-size: 0.8rem; }
-    .ship-card-upper-star {
-      font-size: 2rem;
-      color: red; }
-      .ship-card-upper-star::hover {
-        color: #ff9999; }
-  .ship-card-body {
-    align-self: center;
-    font-weight: 800;
-    font-size: 3rem; }
-    .ship-card-body::hover {
-      color: red; }
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-width: 500px;
+    max-width: 900px;
+    padding: 10px;
+    margin: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: white; }
+    .ship-card:hover {
+      background-color: rgba(255, 0, 0, 0.3); }
+    .ship-card-upper {
+      display: flex;
+      justify-content: space-between; }
+      .ship-card-upper-id {
+        font-size: 0.8rem; }
+      .ship-card-upper-star {
+        font-size: 2rem;
+        color: red;
+        width: 30px;
+        height: 30px;
+        fill: lime; }
+    .ship-card-body {
+      align-self: center;
+      font-weight: 800;
+      font-size: 3rem;
+      padding: 20px; }
+    .ship-card-tag > span {
+      background: red; }
+
+.modal-wapper {
+  color: white;
+  max-width: 900px; }
+  .modal-wapper-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 6px;
+    display: flex; }
+    .modal-wapper-container-img-holder {
+      display: flex;
+      justify-content: center;
+      margin: 20px; }
+    .modal-wapper-container-info > span {
+      display: block;
+      margin-bottom: 6px; }
+    .modal-wapper-container-info > p {
+      display: flex;
+      flex-wrap: wrap;
+      line-height: 2rem; }
+      .modal-wapper-container-info > p > span {
+        margin-right: 5px; }
+    .modal-wapper-container-info-tag {
+      margin: 4px;
+      background: #cc3333;
+      color: white;
+      font-weight: 400;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      padding: 3px; }
+    .modal-wapper-container-input > [type='text'] {
+      margin: 20px;
+      border: 0;
+      outline: 0;
+      border-bottom: 2px solid #cc3333;
+      color: white;
+      padding: 6px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1); }
+      .modal-wapper-container-input > [type='text']::placeholder {
+        color: #cc3333; }
+      .modal-wapper-container-input > [type='text']:hover, .modal-wapper-container-input > [type='text']:focus {
+        border-bottom: 2px solid red;
+        transition: 0.4s ease-in-out; }
+    .modal-wapper-container-input > button {
+      color: white;
+      background: transparent;
+      border: 1px solid white;
+      outline: none;
+      height: 50%;
+      align-self: center;
+      padding: 10px;
+      transition: 0.4s all; }
+      .modal-wapper-container-input > button:hover {
+        border: 1px solid red;
+        color: red;
+        box-shadow: 1px 1px 3px red; }
+
+/* SPRITES */
+.executor {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
+
+.sentinel-class-landing-craft {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
+
+.death-star {
+  background: url("../img/vehicles.png") no-repeat -100px -4717px;
+  width: 240px;
+  height: 234px; }
+
+.millennium-falcon {
+  background: url("../img/vehicles.png") no-repeat -872px -2291px;
+  width: 605px;
+  height: 274px; }
+
+.y-wing {
+  background: url("../img/vehicles.png") no-repeat -316px -1450px;
+  width: 544px;
+  height: 428px; }
+
+.x-wing {
+  background: url("../img/vehicles.png") no-repeat -1162px -1446px;
+  width: 304px;
+  height: 225px; }
+
+.tie-advanced-x1 {
+  background: url("../img/vehicles.png") no-repeat -296px -747px;
+  width: 292px;
+  height: 209px; }
+
+.slave-1 {
+  background: url("../img/vehicles.png") no-repeat -872px -2291px;
+  width: 605px;
+  height: 274px;
+  /* Imagem esta mais para a direita*/ }
+
+.imperial-shuttle {
+  background: url("../img/vehicles.png") no-repeat -1200px -1964px;
+  width: 197px;
+  height: 262px; }
+
+.ef76-nebulon-b-escort-frigate {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
+
+.a-wing {
+  background: url("../img/vehicles.png") no-repeat -39px -1467px;
+  width: 225px;
+  height: 156px; }
+
+.b-wing {
+  background: url("../img/vehicles.png") no-repeat -316px -1450px;
+  width: 544px;
+  height: 428px; }
+
+.republic-crusier {
+  background: url("../img/vehicles.png") no-repeat -18px -2291px;
+  width: 513px;
+  height: 240px; }
+
+.naboo-fighter {
+  background: url("../img/vehicles.png") no-repeat -14px -1205px;
+  width: 250px;
+  height: 244px; }
+
+.naboo-royal-starship {
+  background: url("../img/vehicles.png") no-repeat -14px -1205px;
+  width: 250px;
+  height: 244px; }
+
+.scimitar {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
+
+.j-type-diplomatic-barge {
+  background: url("../img/vehicles.png") no-repeat -872px -2291px;
+  width: 605px;
+  height: 274px; }
+
+.aa-9-coruscant-freighter {
+  background: url("../img/vehicles.png") no-repeat -872px -2291px;
+  width: 605px;
+  height: 274px; }
+
+.jedi-starfighter {
+  background: url("../img/vehicles.png") no-repeat -846px -1219px;
+  width: 30px;
+  height: 30px;
+  /* baixo esquerda*/ }
+
+.h-type-nubian-yacht {
+  background: url("../img/vehicles.png") no-repeat -872px -2291px;
+  width: 605px;
+  height: 274px; }
+
+.star-destroyer {
+  background: url("../img/vehicles.png") no-repeat -1088px -3902px;
+  width: 56px;
+  height: 64px;
+  /*imagem esta para esquerta cima*/ }
+
+.trade-federation-cruiser {
+  background: url("../img/vehicles.png") no-repeat -617px -4096px;
+  width: 30px;
+  height: 29px;
+  /*esquerda baixo */ }
+
+.theta-class-t-2c-shuttle {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
+
+.rebel-transport {
+  background: url("../img/vehicles.png") no-repeat -316px -2608px;
+  width: 418px;
+  height: 201px; }
+
+.droid-control-ship {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
+
+.republic-assault-ship {
+  background: url("../img/vehicles.png") no-repeat -18px -2291px;
+  width: 513px;
+  height: 240px; }
+
+.solar-sailer {
+  background: url("../img/vehicles.png") no-repeat -18px -1923px;
+  width: 550px;
+  height: 305px; }
+
+.republic-attack-cruiser {
+  background: url("../img/vehicles.png") no-repeat -18px -2291px;
+  width: 513px;
+  height: 240px; }
+
+.naboo-star-skiff {
+  background: url("../img/vehicles.png") no-repeat -14px -1205px;
+  width: 250px;
+  height: 244px; }
+
+.jedi-interceptor {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
+
+.arc-170 {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
+
+.belbullab-22-starfighter {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
+
+.v-wing {
+  background: url("../img/vehicles.png") no-repeat -861px -1457px;
+  width: 242px;
+  height: 214px; }
+
+.cr90-corvette {
+  background: url("../img/vehicles.png") no-repeat -18px -2291px;
+  width: 513px;
+  height: 240px; }
+
+.banking-clan-frigate {
+  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  width: 174px;
+  height: 205px; }
