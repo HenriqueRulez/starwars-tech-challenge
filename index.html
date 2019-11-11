@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="js/vue.js"></script>
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>tb.lx Star Wars tech challenge</title>
@@ -55,77 +56,259 @@
 
     </header>
 
-    <section class="search">
-        <div class="search-wrapper">
-            <h1 class="search-header">Search spaceships</h1>
+    <div id="app">
 
-            <div class="search-box">
-                <div class="search-box-input">
-                    <input type="text" name="search" id="search">
-                </div>
-                <div class="search-box-parameters">
-                    <span>Select search parameter:</span>
+        <section v-if="isSeen">
+            <div class="modal-wapper">
+                <div class="modal-wapper-container">
 
-                    <div>
-                        <div class="mdc-form-field">
-                            <div class="mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" id="searchStar" name="searchParam">
-                                <div class="mdc-radio__background">
-                                    <div class="mdc-radio__outer-circle"></div>
-                                    <div class="mdc-radio__inner-circle"></div>
-                                </div>
-                            </div>
-                            <label for="searchStar">Star</label>
-                        </div>
-                        <div class="mdc-form-field">
-                            <div class="mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" id="searchId" name="searchParam">
-                                <div class="mdc-radio__background">
-                                    <div class="mdc-radio__outer-circle"></div>
-                                    <div class="mdc-radio__inner-circle"></div>
-                                </div>
-                            </div>
-                            <label for="searchId">Id</label>
-                        </div>
-                        <div class="mdc-form-field">
-                            <div class="mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" id="searchName" name="searchParam">
-                                <div class="mdc-radio__background">
-                                    <div class="mdc-radio__outer-circle"></div>
-                                    <div class="mdc-radio__inner-circle"></div>
-                                </div>
-                            </div>
-                            <label for="searchName">Name</label>
-                        </div>
-                        <div class="mdc-form-field">
-                            <div class="mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" id="searchTag" name="searchParam">
-                                <div class="mdc-radio__background">
-                                    <div class="mdc-radio__outer-circle"></div>
-                                    <div class="mdc-radio__inner-circle"></div>
-                                </div>
-                            </div>
-                            <label for="searchTag">Tag</label>
+                    <div class="img-holder">
+                        <div class="modal-wapper-container-img-holder" :class="addShipClass(modalShip.name)">
                         </div>
 
                     </div>
-
-
+                    <div class="modal-wapper-container-info">
+                        <span class="ship-id">Id: {{modalShip.id}}</span>
+                        <h1 class="ship-name">{{modalShip.name}}</h1>
+                        <span class="ship-model">{{modalShip.model}}</span>
+                        <span class="ship-model">Cost: {{modalShip.value | numeroPreco}}</span>
+                        <span class="ship-model">Ship manufacturer: {{modalShip.manufacturer}}</span>
+                        <span class="ship-model">Crew capacity: {{modalShip.crew}}</span>
+                        <span class="ship-model">Passengers capacity: {{modalShip.passengers}}</span>
+                        <p>
+                            Tags:
+                            <span class="modal-wapper-container-info-tag" v-for="(value, key) in modalShip.tags"> {{value}}</span>
+                        </p>
+                        <p class="modal-wapper-container-input">
+                            <input type="text" name="tag" id="tag" v-model.lazy="newTag" placeholder="New Tag">
+                            <button @click="addTag(modalShip.id)">ADD</button>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="ship">
-       <div class="ship-card">
-        <div class="ship-card-upper">
-                <span class="ship-card-upper-id">ID: </span>
-                <span class="ship-card-upper-star">*</span>
-        </div>
-        <span class="ship-card-body">Executor</span>
-        <p class="ship-card-tag"> <span>tag</span></p>
-       </div>
-    </section>
+
+        <section class="search">
+            <div class="search-wrapper">
+                <h1 class="search-header">Search spaceships</h1>
+
+                <div class="search-box">
+                    <div class="search-box-input">
+                        <input type="text" name="search" id="search">
+                    </div>
+                    <div class="search-box-parameters">
+                        <span>Select search parameter:</span>
+
+                        <div>
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="searchStar"
+                                        name="searchParam">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                </div>
+                                <label for="searchStar">Star</label>
+                            </div>
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="searchId"
+                                        name="searchParam">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                </div>
+                                <label for="searchId">Id</label>
+                            </div>
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="searchName"
+                                        name="searchParam">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                </div>
+                                <label for="searchName">Name</label>
+                            </div>
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="searchTag"
+                                        name="searchParam">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                </div>
+                                <label for="searchTag">Tag</label>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ship" v-show="isDone">
+            <div class="ship-card" v-for="(ship, key) in mappedShips" :key="ship.name"
+                @click="getShipByName(ship.name)">
+                <div class="ship-card-upper">
+                    <span class="ship-card-upper-id">ID: {{ship.id}} </span>
+                    <span class="ship-card-upper-star">*</span>
+                </div>
+                <span class="ship-card-body">{{ship.name}}</span>
+                <p class="ship-card-tag"> Tags: <span>{{ship.tags}}</span>
+                </p>
+            </div>
+        </section>
+
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                newTag: "",
+                ships: [],
+                nextUrl: {},
+
+                selected: "",
+                detailedShip: [],
+
+                getShipDetails: "",
+                isDone: false,
+                isSeen: false,
+
+                url: "https://swapi.co/api/starships/?page=1",
+                modalShip: {},
+                mappedShips: []
+
+            },
+            methods: {
+                fetchStarship() {
+                    if (this.url) {
+                        this.grabNextUrl(this.url);
+                    }
+
+                },
+                async grabNextUrl(url) {
+                    if (this.url) {
+                        fetch(this.url)
+                            .then(response => response.json())
+                            .then(json => {
+                                this.ships.push(...json.results)
+                                this.url = json.next
+                                this.grabNextUrl(this.url);
+                                if (!this.url) {
+                                    this.isDone = true
+                                    this.mapShips();
+                                    this.checkLocalTags();
+                                }
+                            }).catch(err => {
+                                alert(err)
+                            })
+                    }
+                },
+                getShipByName(name) {
+                    this.modalShip = this.mappedShips.find((ship) => ship.name === name)
+                    this.isSeen = true;
+                },
+                mapShips() {
+                    this.ships.map((ship, index) => {
+                        return this.mappedShips.push({
+                            id: index + 1,
+                            name: ship.name,
+                            model: ship.model,
+                            value: ship.cost_in_credits,
+                            manufacturer: ship.manufacturer,
+                            crew: ship.crew,
+                            passengers: ship.passengers,
+                            tags: [""]
+                        })
+                    });
+                },
+
+                addShipClass(ship) {
+                    return `${ship}`.replace(/ /g, "-").toLowerCase();
+                },
+                addTag(target) {
+                    const targetShip = this.mappedShips.find((ship) => ship.id === target);
+                    console.log(targetShip);
+                    
+                    console.log(targetShip.tags);
+                    
+                    if(!targetShip.tags){
+                        targetShip.tags = []
+                    }
+                    
+
+                    if (this.newTag && !targetShip.tags.includes(this.newTag)) {
+
+                        targetShip.tags.push(this.newTag.trim());
+                        this.storeTagsIntoStorage(targetShip.id, targetShip.tags);
+                    } else {
+                        console.log("tem espaço");
+
+                    }
+                    return this.newTag = "";
+
+
+                    
+                },
+                storeTagsIntoStorage(shipId, shipTags) {
+                    const stringifiedTags = JSON.stringify(shipTags);
+                    return localStorage.setItem(shipId, stringifiedTags);
+                },
+                checkLocalTags() {
+
+
+
+                    this.mappedShips.forEach((ship) => {
+                        ship.tags = JSON.parse(localStorage.getItem(ship.id))
+                    });
+                }
+            },
+            watch: {
+                getShipDetails(value) {
+                    this.detailedShip = this.mappedShips.find((ship) => ship.name === value)
+
+                },
+
+                filterShipDetails(value) {
+                    this.detailedShip = this.mappedShips.find((ship) => ship.name === value)
+
+                }
+            },
+            filters: {
+                numeroPreco(value) {
+                    if (value === "unknown") {
+                        return value
+                    }
+                    return parseFloat(value).toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD'
+                    });
+                }
+            },
+            created() {
+                // this.checkLocalTags();
+
+
+
+
+            },
+            mounted() {
+                this.fetchStarship();
+                // this.mapShips();
+            }
+        })
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="js/main.js"></script>
