@@ -88,8 +88,8 @@
                             <input type="text" name="tag" id="tag" v-model.lazy="newTag" placeholder="New Tag">
                             <button @click="addTag(modalShip.id)">ADD</button>
                             <button @click="addFavorite(modalShip.name)">
-                                <span v-if="modalShip.favorite">Favorite</span>
-                                <span v-else>Unfavorite</span>
+                                <span v-if="modalShip.favorite">Unfavorite</span>
+                                <span v-else>Favorite</span>
                             </button>
                         </p>
 
@@ -115,7 +115,18 @@
                             <div class="mdc-form-field">
                                 <div class="mdc-radio">
                                     <input class="mdc-radio__native-control" type="radio" v-model="selectedRadio"
-                                        value="favorites" id="searchStar" name="searchParam" checked="checked">
+                                        value="name" id="searchName" name="searchParam">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                </div>
+                                <label for="searchName">Name</label>
+                            </div>
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" v-model="selectedRadio"
+                                        value="favorites" id="searchStar" name="searchParam">
                                     <div class="mdc-radio__background">
                                         <div class="mdc-radio__outer-circle"></div>
                                         <div class="mdc-radio__inner-circle"></div>
@@ -137,17 +148,6 @@
                             <div class="mdc-form-field">
                                 <div class="mdc-radio">
                                     <input class="mdc-radio__native-control" type="radio" v-model="selectedRadio"
-                                        value="name" id="searchName" name="searchParam">
-                                    <div class="mdc-radio__background">
-                                        <div class="mdc-radio__outer-circle"></div>
-                                        <div class="mdc-radio__inner-circle"></div>
-                                    </div>
-                                </div>
-                                <label for="searchName">Name</label>
-                            </div>
-                            <div class="mdc-form-field">
-                                <div class="mdc-radio">
-                                    <input class="mdc-radio__native-control" type="radio" v-model="selectedRadio"
                                         value="tag" id="searchTag" name="searchParam">
                                     <div class="mdc-radio__background">
                                         <div class="mdc-radio__outer-circle"></div>
@@ -156,16 +156,23 @@
                                 </div>
                                 <label for="searchTag">Tag</label>
                             </div>
-
                         </div>
 
+                    </div>
+                    <div class="search-box-parameters">
+                        <span>Select sort parameter:</span>
+                        <div class="search-box-parameters-sort">
+                            <button @click="sortShips('name')">Name</button>
+                            <button @click="sortShips('id')">ID</button>
+
+                        </div>
 
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="ship" v-if="searchParameter">
+        <section class="ship">
             <div class="ship-card" v-for="ship in filteredList" :key="ship.name" @click="getShipByName(ship.name)">
                 <div class="ship-card-upper">
                     <span class="ship-card-upper-id">ID: {{ship.id}} </span>
@@ -177,7 +184,7 @@
             </div>
         </section>
 
-        <section class="ship" v-show="isDone" v-else>
+        <!-- <section class="ship" v-show="isDone" v-else>
             <div class="ship-card" v-for="(ship, key) in mappedShips" :key="ship.name"
                 @click="getShipByName(ship.name)">
                 <div class="ship-card-upper">
@@ -188,7 +195,7 @@
                 <p class="ship-card-tag"> Tags: <span>{{ship.tags}}</span>
                 </p>
             </div>
-        </section>
+        </section> -->
 
 
     </div>
@@ -211,7 +218,7 @@
                 url: "https://swapi.co/api/starships/?page=1",
                 modalShip: {},
                 mappedShips: [],
-                selectedRadio: "favorites",
+                selectedRadio: "name",
                 searchParameter: ""
 
             },
@@ -234,12 +241,13 @@
                                     this.isDone = true
                                     this.mapShips();
                                     this.checkLocalTags();
+                                    this.checkLocalFav();
                                 }
                             }).catch(err => {
                                 alert("Page is going to reload automatically in 2s due to an API fetch error", err)
-                               setTimeout(()=>{
-                                location.reload();
-                               }, 2000)
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 2000)
                             })
                     }
                 },
@@ -271,21 +279,17 @@
                 },
                 addTag(target) {
                     const targetShip = this.mappedShips.find((ship) => ship.id === target);
-                    console.log(targetShip);
-
-                    console.log(targetShip.tags);
-
                     if (!targetShip.tags) {
                         targetShip.tags = []
                     }
 
 
-                    if (this.newTag && !targetShip.tags.includes(this.newTag)) {
+                    if (this.newTag.trim() && !targetShip.tags.includes(this.newTag)) {
 
                         targetShip.tags.push(this.newTag.trim());
                         this.storeTagsIntoStorage(targetShip.id, targetShip.tags);
                     } else {
-                        console.log("tem espaço");
+                        alert("Invalid option");
 
                     }
                     return this.newTag = "";
@@ -319,9 +323,46 @@
 
                     return result
                 },
-                addFavorite(shipName){
-                  const newFav =  this.mappedShips.find((ship) => ship.name === shipName)
-                  newFav.favorite = true;
+                addFavorite(shipName) {
+                    const newFav = this.mappedShips.find((ship) => ship.name === shipName)
+                    newFav.favorite = !newFav.favorite;
+                    this.storeFavoriteIntoStorage(newFav.id, newFav.favorite);
+                },
+                storeFavoriteIntoStorage(shipId, shipFav) {
+
+                    localStorage.setItem("Fav" + shipId, shipFav);
+                },
+                checkLocalFav() {
+                    this.mappedShips.forEach((ship) => {
+                        ship.favorite = JSON.parse(localStorage.getItem("Fav" + ship.id))
+                    });
+                },
+                sortShips(param) {
+
+                    if (param === "name") {
+                        return this.mappedShips.sort((a, b) => {
+                            if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                                return 1
+                            }
+                            if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                                return -1
+                            }
+
+                        });
+                    } else if (param === "id") {
+
+                        return this.mappedShips.sort((a, b) => {
+                            if (a.id > b.id) {
+                                return 1
+                            }
+                            if (a.id < b.id) {
+                                return -1
+                            }
+
+                        });
+                    }
+
+
                 }
             },
             watch: {
@@ -351,30 +392,22 @@
                     });
                 }
             },
-            created() {
-                // this.checkLocalTags();
-
-
-
-
-            },
             mounted() {
                 this.fetchStarship();
-                // this.mapShips();
             },
             computed: {
                 filteredList() {
                     switch (this.selectedRadio) {
                         case "favorites":
                             return this.mappedShips.filter(mappedShip => {
-                                return mappedShip.name.toLowerCase().includes(this.searchParameter.toLowerCase())
+                                return mappedShip.favorite;
                             })
                             break;
 
                         case "id":
 
                             return this.mappedShips.filter((ship) => {
-                                  if (String(ship.id) === this.searchParameter) {
+                                if (String(ship.id) === this.searchParameter) {
                                     return ship
                                 }
                             });
@@ -387,11 +420,16 @@
                             break;
                         case "tag":
                             return this.mappedShips.filter(mappedShip => {
-                               
+
                                 if (mappedShip.tags) {
                                     return mappedShip.tags.includes(this.searchParameter)
                                 }
 
+                            })
+                            break;
+                        default:
+                            return this.mappedShips.filter(mappedShip => {
+                                return mappedShip.favorite;
                             })
                             break;
                     }

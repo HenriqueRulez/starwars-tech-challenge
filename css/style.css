@@ -111,6 +111,27 @@ section {
         .search-box-parameters .mdc-radio + label {
           margin-right: 0px;
           padding-right: 5px; } }
+    .search-box-parameters-sort {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px; }
+      .search-box-parameters-sort > button {
+        cursor: pointer;
+        color: white;
+        background: transparent;
+        border: 1px solid white;
+        outline: none;
+        height: 50%;
+        align-self: center;
+        padding: 10px;
+        transition: 0.4s all; }
+        @media screen and (max-width: 360px) {
+          .search-box-parameters-sort > button {
+            margin: 0 auto; } }
+        .search-box-parameters-sort > button:hover {
+          border: 1px solid red;
+          color: red;
+          box-shadow: 1px 1px 3px red; }
 
 .ship {
   flex-direction: column;
