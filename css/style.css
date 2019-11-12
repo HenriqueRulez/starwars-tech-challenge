@@ -138,11 +138,10 @@ section {
       .ship-card-upper-id {
         font-size: 0.8rem; }
       .ship-card-upper-star {
-        font-size: 2rem;
+        font-size: 4rem;
         color: red;
-        width: 30px;
-        height: 30px;
-        fill: lime; }
+        width: 20px;
+        height: 0px; }
     .ship-card-body {
       align-self: center;
       font-weight: 800;
@@ -207,6 +206,7 @@ section {
       border-radius: 6px;
       padding: 3px; }
     .modal-wapper-container-input > [type="text"] {
+      box-sizing: border-box;
       margin: 20px;
       border: 0;
       outline: 0;

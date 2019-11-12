@@ -201,12 +201,11 @@ section {
       }
 
       &-star {
-        font-size: 2rem;
+        font-size: 4rem;
         color: $primary-color;
 
-        width: 30px;
-        height: 30px;
-        fill: lime;
+        width: 20px;
+        height: 0px;
       }
     }
 
@@ -299,6 +298,7 @@ section {
 
     &-input {
       > [type="text"] {
+        box-sizing: border-box;
         margin: $base-padding;
         border: 0;
         outline: 0;
