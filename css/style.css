@@ -111,6 +111,27 @@ section {
         .search-box-parameters .mdc-radio + label {
           margin-right: 0px;
           padding-right: 5px; } }
+    .search-box-parameters-sort {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px; }
+      .search-box-parameters-sort > button {
+        cursor: pointer;
+        color: white;
+        background: transparent;
+        border: 1px solid white;
+        outline: none;
+        height: 50%;
+        align-self: center;
+        padding: 10px;
+        transition: 0.4s all; }
+        @media screen and (max-width: 360px) {
+          .search-box-parameters-sort > button {
+            margin: 0 auto; } }
+        .search-box-parameters-sort > button:hover {
+          border: 1px solid red;
+          color: red;
+          box-shadow: 1px 1px 3px red; }
 
 .ship {
   flex-direction: column;
@@ -138,11 +159,10 @@ section {
       .ship-card-upper-id {
         font-size: 0.8rem; }
       .ship-card-upper-star {
-        font-size: 2rem;
+        font-size: 4rem;
         color: red;
-        width: 30px;
-        height: 30px;
-        fill: lime; }
+        width: 20px;
+        height: 0px; }
     .ship-card-body {
       align-self: center;
       font-weight: 800;
@@ -207,6 +227,7 @@ section {
       border-radius: 6px;
       padding: 3px; }
     .modal-wapper-container-input > [type="text"] {
+      box-sizing: border-box;
       margin: 20px;
       border: 0;
       outline: 0;

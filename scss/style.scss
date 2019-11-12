@@ -162,6 +162,35 @@ section {
           padding-right: 5px;
         }
       }
+
+      &-sort {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+
+        > button {
+          cursor: pointer;
+
+          color: white;
+          background: transparent;
+          border: 1px solid white;
+          outline: none;
+          height: 50%;
+          align-self: center;
+          padding: 10px;
+          transition: 0.4s all;
+
+          @media screen and (max-width: 360px) {
+            margin: 0 auto;
+          }
+
+          &:hover {
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            box-shadow: 1px 1px 3px $primary-color;
+          }
+        }
+      }
     }
   }
 }
@@ -201,12 +230,11 @@ section {
       }
 
       &-star {
-        font-size: 2rem;
+        font-size: 4rem;
         color: $primary-color;
 
-        width: 30px;
-        height: 30px;
-        fill: lime;
+        width: 20px;
+        height: 0px;
       }
     }
 
@@ -299,6 +327,7 @@ section {
 
     &-input {
       > [type="text"] {
+        box-sizing: border-box;
         margin: $base-padding;
         border: 0;
         outline: 0;
