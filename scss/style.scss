@@ -8,7 +8,7 @@ $base-shadow: rgba(255, 255, 255, 0.1);
 
 html {
   font-size: 62.5%;
-  font-family: 'IBM Plex Sans';
+  font-family: "IBM Plex Sans";
   background: #000;
 }
 
@@ -55,11 +55,13 @@ canvas {
 section {
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 360px) {
+    padding: 20px;
+  }
 }
 
 .search {
-  //   background-color: white;
-
   &-wrapper {
     width: 500px;
     display: flex;
@@ -91,7 +93,7 @@ section {
       //   padding: $base-padding;
       width: 100%;
 
-      > [type='text'] {
+      > [type="text"] {
         min-width: 80%;
         width: 100%;
         border: 0;
@@ -115,7 +117,12 @@ section {
       grid-column: 1 / 1;
       padding: $base-padding;
 
-      > [type='radio'] {
+      @media screen and (max-width: 360px) {
+        padding: 0px;
+        margin: 10px 0px 0px 0px;
+      }
+
+      > [type="radio"] {
         display: inline;
 
         &:not(:checked),
@@ -132,6 +139,16 @@ section {
         margin: $base-margin;
         background: $base-shadow;
         border-radius: $base-border-radius;
+
+        @media screen and (max-width: 360px) {
+          padding: 0px;
+          margin: 10px 0px 0px 0px;
+        }
+      }
+      .mdc-radio {
+        @media screen and (max-width: 360px) {
+          padding: 10px;
+        }
       }
       .mdc-radio + label {
         cursor: pointer;
@@ -139,6 +156,11 @@ section {
         font-size: 1.4rem;
         margin-right: 10px;
         color: white;
+
+        @media screen and (max-width: 360px) {
+          margin-right: 0px;
+          padding-right: 5px;
+        }
       }
     }
   }
@@ -155,12 +177,16 @@ section {
     flex-wrap: wrap;
     flex-direction: column;
     min-width: 500px;
-    max-width: 900px;
     padding: 10px;
     margin: $base-margin;
     background: $base-shadow;
     border-radius: $base-border-radius;
     color: white;
+
+    @media screen and (max-width: 360px) {
+      min-width: 300px;
+      max-width: 80%;
+    }
 
     &:hover {
       background-color: rgba($primary-color, 0.3);
@@ -202,12 +228,21 @@ section {
   color: white;
   max-width: 900px;
 
+  @media screen and (max-width: 360px) {
+    min-width: 300px;
+    max-width: 80%;
+  }
+
   &-container {
     position: relative;
     background: $base-shadow;
     padding: $base-padding;
     border-radius: $base-border-radius;
     display: flex;
+
+    @media screen and (max-width: 360px) {
+      flex-direction: column;
+    }
 
     &-img-holder {
       display: flex;
@@ -245,6 +280,7 @@ section {
         display: flex;
         flex-wrap: wrap;
         line-height: 2rem;
+
         > span {
           margin-right: 5px;
         }
@@ -262,7 +298,7 @@ section {
     }
 
     &-input {
-      > [type='text'] {
+      > [type="text"] {
         margin: $base-padding;
         border: 0;
         outline: 0;
@@ -271,6 +307,10 @@ section {
         padding: 6px;
         border-radius: $base-border-radius;
         background: $base-shadow;
+
+        @media screen and (max-width: 360px) {
+          margin: 0 auto;
+        }
 
         &::placeholder {
           color: desaturate($primary-color, 40%);
@@ -293,6 +333,11 @@ section {
         align-self: center;
         padding: 10px;
         transition: 0.4s all;
+
+        @media screen and (max-width: 360px) {
+          margin: 0 auto;
+        }
+
         &:hover {
           border: 1px solid $primary-color;
           color: $primary-color;

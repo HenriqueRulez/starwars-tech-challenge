@@ -1,7 +1,7 @@
 /** reset **/
 html {
   font-size: 62.5%;
-  font-family: 'IBM Plex Sans';
+  font-family: "IBM Plex Sans";
   background: #000; }
 
 ::selection {
@@ -40,6 +40,9 @@ canvas {
 section {
   display: flex;
   justify-content: center; }
+  @media screen and (max-width: 360px) {
+    section {
+      padding: 20px; } }
 
 .search-wrapper {
   width: 500px;
@@ -59,7 +62,7 @@ section {
   .search-box-input {
     box-sizing: border-box;
     width: 100%; }
-    .search-box-input > [type='text'] {
+    .search-box-input > [type="text"] {
       min-width: 80%;
       width: 100%;
       border: 0;
@@ -69,16 +72,20 @@ section {
       padding: 6px;
       border-radius: 6px;
       background: rgba(255, 255, 255, 0.1); }
-      .search-box-input > [type='text']:hover, .search-box-input > [type='text']:focus {
+      .search-box-input > [type="text"]:hover, .search-box-input > [type="text"]:focus {
         border-bottom: 2px solid red;
         transition: 0.4s ease-in-out; }
   .search-box-parameters {
     grid-row: 2 / 2;
     grid-column: 1 / 1;
     padding: 20px; }
-    .search-box-parameters > [type='radio'] {
+    @media screen and (max-width: 360px) {
+      .search-box-parameters {
+        padding: 0px;
+        margin: 10px 0px 0px 0px; } }
+    .search-box-parameters > [type="radio"] {
       display: inline; }
-      .search-box-parameters > [type='radio']:not(:checked), .search-box-parameters > [type='radio']:checked {
+      .search-box-parameters > [type="radio"]:not(:checked), .search-box-parameters > [type="radio"]:checked {
         display: none; }
     .search-box-parameters > span {
       color: red;
@@ -87,12 +94,23 @@ section {
       margin: 20px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 6px; }
+      @media screen and (max-width: 360px) {
+        .search-box-parameters > div {
+          padding: 0px;
+          margin: 10px 0px 0px 0px; } }
+    @media screen and (max-width: 360px) {
+      .search-box-parameters .mdc-radio {
+        padding: 10px; } }
     .search-box-parameters .mdc-radio + label {
       cursor: pointer;
       user-select: none;
       font-size: 1.4rem;
       margin-right: 10px;
       color: white; }
+      @media screen and (max-width: 360px) {
+        .search-box-parameters .mdc-radio + label {
+          margin-right: 0px;
+          padding-right: 5px; } }
 
 .ship {
   flex-direction: column;
@@ -103,12 +121,15 @@ section {
     flex-wrap: wrap;
     flex-direction: column;
     min-width: 500px;
-    max-width: 900px;
     padding: 10px;
     margin: 20px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     color: white; }
+    @media screen and (max-width: 360px) {
+      .ship-card {
+        min-width: 300px;
+        max-width: 80%; } }
     .ship-card:hover {
       background-color: rgba(255, 0, 0, 0.3); }
     .ship-card-upper {
@@ -133,12 +154,19 @@ section {
 .modal-wapper {
   color: white;
   max-width: 900px; }
+  @media screen and (max-width: 360px) {
+    .modal-wapper {
+      min-width: 300px;
+      max-width: 80%; } }
   .modal-wapper-container {
     position: relative;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 6px;
     display: flex; }
+    @media screen and (max-width: 360px) {
+      .modal-wapper-container {
+        flex-direction: column; } }
     .modal-wapper-container-img-holder {
       display: flex;
       justify-content: center;
@@ -178,7 +206,7 @@ section {
       font-size: 0.8rem;
       border-radius: 6px;
       padding: 3px; }
-    .modal-wapper-container-input > [type='text'] {
+    .modal-wapper-container-input > [type="text"] {
       margin: 20px;
       border: 0;
       outline: 0;
@@ -187,9 +215,12 @@ section {
       padding: 6px;
       border-radius: 6px;
       background: rgba(255, 255, 255, 0.1); }
-      .modal-wapper-container-input > [type='text']::placeholder {
+      @media screen and (max-width: 360px) {
+        .modal-wapper-container-input > [type="text"] {
+          margin: 0 auto; } }
+      .modal-wapper-container-input > [type="text"]::placeholder {
         color: #cc3333; }
-      .modal-wapper-container-input > [type='text']:hover, .modal-wapper-container-input > [type='text']:focus {
+      .modal-wapper-container-input > [type="text"]:hover, .modal-wapper-container-input > [type="text"]:focus {
         border-bottom: 2px solid red;
         transition: 0.4s ease-in-out; }
     .modal-wapper-container-input > button {
@@ -202,6 +233,9 @@ section {
       align-self: center;
       padding: 10px;
       transition: 0.4s all; }
+      @media screen and (max-width: 360px) {
+        .modal-wapper-container-input > button {
+          margin: 0 auto; } }
       .modal-wapper-container-input > button:hover {
         border: 1px solid red;
         color: red;
@@ -211,178 +245,213 @@ section {
 .executor {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
 
 .sentinel-class-landing-craft {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
 
 .death-star {
   background: url("../img/vehicles.png") no-repeat -100px -4717px;
   width: 240px;
-  height: 234px; }
+  height: 234px;
+  margin: 0 auto; }
 
 .millennium-falcon {
   background: url("../img/vehicles.png") no-repeat -872px -2291px;
   width: 605px;
-  height: 274px; }
+  height: 274px;
+  margin: 0 auto; }
 
 .y-wing {
   background: url("../img/vehicles.png") no-repeat -316px -1450px;
   width: 544px;
-  height: 428px; }
+  height: 428px;
+  margin: 0 auto; }
 
 .x-wing {
   background: url("../img/vehicles.png") no-repeat -1162px -1446px;
   width: 304px;
-  height: 225px; }
+  height: 225px;
+  margin: 0 auto; }
 
 .tie-advanced-x1 {
   background: url("../img/vehicles.png") no-repeat -296px -747px;
   width: 292px;
-  height: 209px; }
+  height: 209px;
+  margin: 0 auto; }
 
 .slave-1 {
   background: url("../img/vehicles.png") no-repeat -872px -2291px;
   width: 605px;
   height: 274px;
+  margin: 0 auto;
   /* Imagem esta mais para a direita*/ }
 
 .imperial-shuttle {
   background: url("../img/vehicles.png") no-repeat -1200px -1964px;
   width: 197px;
-  height: 262px; }
+  height: 262px;
+  margin: 0 auto; }
 
 .ef76-nebulon-b-escort-frigate {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
 
 .a-wing {
   background: url("../img/vehicles.png") no-repeat -39px -1467px;
   width: 225px;
-  height: 156px; }
+  height: 156px;
+  margin: 0 auto; }
 
 .b-wing {
   background: url("../img/vehicles.png") no-repeat -316px -1450px;
   width: 544px;
-  height: 428px; }
+  height: 428px;
+  margin: 0 auto; }
 
 .republic-crusier {
   background: url("../img/vehicles.png") no-repeat -18px -2291px;
   width: 513px;
-  height: 240px; }
+  height: 240px;
+  margin: 0 auto; }
 
 .naboo-fighter {
   background: url("../img/vehicles.png") no-repeat -14px -1205px;
   width: 250px;
-  height: 244px; }
+  height: 244px;
+  margin: 0 auto; }
 
 .naboo-royal-starship {
   background: url("../img/vehicles.png") no-repeat -14px -1205px;
   width: 250px;
-  height: 244px; }
+  height: 244px;
+  margin: 0 auto; }
 
 .scimitar {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
 
 .j-type-diplomatic-barge {
   background: url("../img/vehicles.png") no-repeat -872px -2291px;
   width: 605px;
-  height: 274px; }
+  height: 274px;
+  margin: 0 auto; }
 
 .aa-9-coruscant-freighter {
   background: url("../img/vehicles.png") no-repeat -872px -2291px;
   width: 605px;
-  height: 274px; }
+  height: 274px;
+  margin: 0 auto; }
 
 .jedi-starfighter {
   background: url("../img/vehicles.png") no-repeat -846px -1219px;
   width: 30px;
   height: 30px;
+  margin: 0 auto;
   /* baixo esquerda*/ }
 
 .h-type-nubian-yacht {
   background: url("../img/vehicles.png") no-repeat -872px -2291px;
   width: 605px;
-  height: 274px; }
+  height: 274px;
+  margin: 0 auto; }
 
 .star-destroyer {
   background: url("../img/vehicles.png") no-repeat -1088px -3902px;
   width: 56px;
   height: 64px;
+  margin: 0 auto;
   /*imagem esta para esquerta cima*/ }
 
 .trade-federation-cruiser {
   background: url("../img/vehicles.png") no-repeat -617px -4096px;
   width: 30px;
   height: 29px;
+  margin: 0 auto;
   /*esquerda baixo */ }
 
 .theta-class-t-2c-shuttle {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
 
 .rebel-transport {
   background: url("../img/vehicles.png") no-repeat -316px -2608px;
   width: 418px;
-  height: 201px; }
+  height: 201px;
+  margin: 0 auto; }
 
 .droid-control-ship {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
 
 .republic-assault-ship {
   background: url("../img/vehicles.png") no-repeat -18px -2291px;
   width: 513px;
-  height: 240px; }
+  height: 240px;
+  margin: 0 auto; }
 
 .solar-sailer {
   background: url("../img/vehicles.png") no-repeat -18px -1923px;
   width: 550px;
-  height: 305px; }
+  height: 305px;
+  margin: 0 auto; }
 
 .republic-attack-cruiser {
   background: url("../img/vehicles.png") no-repeat -18px -2291px;
   width: 513px;
-  height: 240px; }
+  height: 240px;
+  margin: 0 auto; }
 
 .naboo-star-skiff {
   background: url("../img/vehicles.png") no-repeat -14px -1205px;
   width: 250px;
-  height: 244px; }
+  height: 244px;
+  margin: 0 auto; }
 
 .jedi-interceptor {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
 
 .arc-170 {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
 
 .belbullab-22-starfighter {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
 
 .v-wing {
   background: url("../img/vehicles.png") no-repeat -861px -1457px;
   width: 242px;
-  height: 214px; }
+  height: 214px;
+  margin: 0 auto; }
 
 .cr90-corvette {
   background: url("../img/vehicles.png") no-repeat -18px -2291px;
   width: 513px;
-  height: 240px; }
+  height: 240px;
+  margin: 0 auto; }
 
 .banking-clan-frigate {
   background: url("../img/vehicles.png") no-repeat -55px -747px;
   width: 174px;
-  height: 205px; }
+  height: 205px;
+  margin: 0 auto; }
