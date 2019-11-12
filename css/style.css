@@ -134,6 +134,7 @@ section {
   color: white;
   max-width: 900px; }
   .modal-wapper-container {
+    position: relative;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 6px;
@@ -142,6 +143,24 @@ section {
       display: flex;
       justify-content: center;
       margin: 20px; }
+    .modal-wapper-container-info > button {
+      cursor: pointer;
+      color: red;
+      background: black;
+      outline: none;
+      border-radius: 50%;
+      border: 2px solid red;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      transition: 0.4s all; }
+      .modal-wapper-container-info > button:hover {
+        border: none;
+        color: black;
+        background: red;
+        box-shadow: 0px 3px 4px rgba(255, 0, 0, 0.1); }
     .modal-wapper-container-info > span {
       display: block;
       margin-bottom: 6px; }
@@ -174,6 +193,7 @@ section {
         border-bottom: 2px solid red;
         transition: 0.4s ease-in-out; }
     .modal-wapper-container-input > button {
+      cursor: pointer;
       color: white;
       background: transparent;
       border: 1px solid white;

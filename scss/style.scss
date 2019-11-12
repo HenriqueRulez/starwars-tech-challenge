@@ -203,6 +203,7 @@ section {
   max-width: 900px;
 
   &-container {
+    position: relative;
     background: $base-shadow;
     padding: $base-padding;
     border-radius: $base-border-radius;
@@ -215,6 +216,26 @@ section {
     }
 
     &-info {
+      > button {
+        cursor: pointer;
+        color: $primary-color;
+        background: black;
+        outline: none;
+        border-radius: 50%;
+        border: 2px solid $primary-color;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        transition: 0.4s all;
+        &:hover {
+          border: none;
+          color: black;
+          background: $primary-color;
+          box-shadow: 0px 3px 4px rgba($primary-color, 0.1);
+        }
+      }
       > span {
         display: block;
         margin-bottom: 6px;
@@ -262,6 +283,8 @@ section {
       }
 
       > button {
+        cursor: pointer;
+
         color: white;
         background: transparent;
         border: 1px solid white;

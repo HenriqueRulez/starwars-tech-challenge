@@ -61,6 +61,7 @@
         <section v-if="isSeen">
             <div class="modal-wapper">
                 <div class="modal-wapper-container">
+                        
 
                     <div class="img-holder">
                         <div class="modal-wapper-container-img-holder" :class="addShipClass(modalShip.name)">
@@ -68,6 +69,7 @@
 
                     </div>
                     <div class="modal-wapper-container-info">
+                        <button @click="isSeen = false" class="modal-wapper-container-info-btn">X</button>
                         <span class="ship-id">Id: {{modalShip.id}}</span>
                         <h1 class="ship-name">{{modalShip.name}}</h1>
                         <span class="ship-model">{{modalShip.model}}</span>
@@ -77,13 +79,16 @@
                         <span class="ship-model">Passengers capacity: {{modalShip.passengers}}</span>
                         <p>
                             Tags:
-                            <span class="modal-wapper-container-info-tag" v-for="(value, key) in modalShip.tags"> {{value}}</span>
+                            <span class="modal-wapper-container-info-tag" v-for="(value, key) in modalShip.tags" @click="removeTag(key)">
+                               {{value}}</span>
                         </p>
                         <p class="modal-wapper-container-input">
-                            <input type="text" name="tag" id="tag" v-model.lazy="newTag" placeholder="New Tag">
-                            <button @click="addTag(modalShip.id)">ADD</button>
-                        </p>
+                                <input type="text" name="tag" id="tag" v-model.lazy="newTag" placeholder="New Tag">
+                                <button @click="addTag(modalShip.id)">ADD</button>
+                            </p>
+                       
                     </div>
+
                 </div>
             </div>
         </section>
@@ -165,6 +170,7 @@
                 <p class="ship-card-tag"> Tags: <span>{{ship.tags}}</span>
                 </p>
             </div>
+            
         </section>
 
 
@@ -218,6 +224,10 @@
                 getShipByName(name) {
                     this.modalShip = this.mappedShips.find((ship) => ship.name === name)
                     this.isSeen = true;
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    })
                 },
                 mapShips() {
                     this.ships.map((ship, index) => {
@@ -229,7 +239,7 @@
                             manufacturer: ship.manufacturer,
                             crew: ship.crew,
                             passengers: ship.passengers,
-                            tags: [""]
+                            tags: []
                         })
                     });
                 },
@@ -272,9 +282,23 @@
                     this.mappedShips.forEach((ship) => {
                         ship.tags = JSON.parse(localStorage.getItem(ship.id))
                     });
+                },
+                updateTag(){
+                    const stringifiedTags = JSON.stringify(this.modalShip.tags);
+                    return localStorage.setItem(this.modalShip.id, stringifiedTags);
+                },
+                removeTag(index){
+                    this.modalShip.tags.splice(index, 1);
+                    
+                    this.updateTag();
                 }
             },
             watch: {
+                modalShip(){
+                    document.title = this.modalShip.name || "tb.lx Star Wars tech challenge";
+                    const newTitle = this.modalShip.name.replace(/ /g, "-").toLowerCase() || "";
+                    history.pushState(null, null, `#${newTitle}`);
+                },
                 getShipDetails(value) {
                     this.detailedShip = this.mappedShips.find((ship) => ship.name === value)
 
