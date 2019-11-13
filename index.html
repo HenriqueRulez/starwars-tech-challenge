@@ -70,14 +70,14 @@
                     </div>
                     <div class="modal-wapper-container-info">
                         <button @click="isSeen = false" class="modal-wapper-container-info-btn">X</button>
-                        <span class="ship-id">Id: {{modalShip.id}}</span>
-                        <h1 class="ship-name">{{modalShip.name}}</h1>
-                        <span class="ship-model">{{modalShip.model}}</span>
-                        <span class="ship-model">Cost: {{modalShip.value | numeroPreco}}</span>
-                        <span class="ship-model">Ship manufacturer: {{modalShip.manufacturer}}</span>
-                        <span class="ship-model">Crew capacity: {{modalShip.crew}}</span>
-                        <span class="ship-model">Passengers capacity: {{modalShip.passengers}}</span>
-                        <span class="ship-model">Favorite ship?: {{modalShip.favorite}}</span>
+                        <span>Id: {{modalShip.id}}</span>
+                        <h1>{{modalShip.name}}</h1>
+                        <span>Model: {{modalShip.model}}</span>
+                        <span>Cost: {{modalShip.value | numeroPreco}}</span>
+                        <span>Ship manufacturer: {{modalShip.manufacturer}}</span>
+                        <span>Crew capacity: {{modalShip.crew}}</span>
+                        <span>Passengers capacity: {{modalShip.passengers}}</span>
+                        <span>Favorite ship? {{modalShip.favorite}}</span>
                         <p>
                             Tags:
                             <span class="modal-wapper-container-info-tag" v-for="(value, key) in modalShip.tags"
@@ -183,20 +183,6 @@
                 </p>
             </div>
         </section>
-
-        <!-- <section class="ship" v-show="isDone" v-else>
-            <div class="ship-card" v-for="(ship, key) in mappedShips" :key="ship.name"
-                @click="getShipByName(ship.name)">
-                <div class="ship-card-upper">
-                    <span class="ship-card-upper-id">ID: {{ship.id}} </span>
-                    <span class="ship-card-upper-star" v-if="ship.favorite">*</span>
-                </div>
-                <span class="ship-card-body">{{ship.name}}</span>
-                <p class="ship-card-tag"> Tags: <span>{{ship.tags}}</span>
-                </p>
-            </div>
-        </section> -->
-
 
     </div>
 
