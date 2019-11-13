@@ -1,20 +1,19 @@
 /* SPRITES */
 
 .executor {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  background: url("../img/no-image.png") no-repeat;
   width: 174px;
   height: 205px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
-  
 }
 
 .sentinel-class-landing-craft {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  background: url("../img/no-image.png") no-repeat;
   width: 174px;
   height: 205px;
-  
+
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
@@ -30,18 +29,18 @@
 }
 
 .millennium-falcon {
-  background: url("../img/vehicles.png") no-repeat -872px -2291px;
-  width: 605px;
-  height: 274px;
+  background: url(../img/vehicles.png) no-repeat -359px -2819px;
+  width: 346px;
+  height: 239px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
 }
 
 .y-wing {
-  background: url("../img/vehicles.png") no-repeat -316px -1450px;
-  width: 544px;
-  height: 428px;
+  background: url(../img/vehicles.png) no-repeat -495px -1682px;
+  width: 264px;
+  height: 204px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
@@ -66,8 +65,8 @@
 }
 
 .slave-1 {
-  background: url("../img/vehicles.png") no-repeat -872px -2291px;
-  width: 605px;
+  background: url(../img/vehicles.png) no-repeat -762px -3108px;
+  width: 402px;
   height: 274px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
@@ -85,7 +84,7 @@
 }
 
 .ef76-nebulon-b-escort-frigate {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  background: url("../img/no-image.png") no-repeat;
   width: 174px;
   height: 205px;
   @media screen and (max-width: $small-device) {
@@ -103,18 +102,18 @@
 }
 
 .b-wing {
-  background: url("../img/vehicles.png") no-repeat -316px -1450px;
-  width: 544px;
-  height: 428px;
+  background: url(../img/vehicles.png) no-repeat -316px -1450px;
+  width: 246px;
+  height: 351px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
 }
 
-.republic-crusier {
-  background: url("../img/vehicles.png") no-repeat -18px -2291px;
-  width: 513px;
-  height: 240px;
+.republic-cruiser {
+  background: url("../img/no-image.png") no-repeat;
+  width: 174px;
+  height: 205px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
@@ -130,16 +129,16 @@
 }
 
 .naboo-royal-starship {
-  background: url("../img/vehicles.png") no-repeat -14px -1205px;
-  width: 250px;
-  height: 244px;
+  background: url("../img/no-image.png") no-repeat;
+  width: 174px;
+  height: 205px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
 }
 
 .scimitar {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  background: url("../img/no-image.png") no-repeat;
   width: 174px;
   height: 205px;
   @media screen and (max-width: $small-device) {
@@ -148,27 +147,27 @@
 }
 
 .j-type-diplomatic-barge {
-  background: url("../img/vehicles.png") no-repeat -872px -2291px;
-  width: 605px;
-  height: 274px;
+  background: url(../img/vehicles.png) no-repeat -872px -2291px;
+  width: 342px;
+  height: 223px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
 }
 
 .aa-9-coruscant-freighter {
-  background: url("../img/vehicles.png") no-repeat -872px -2291px;
-  width: 605px;
-  height: 274px;
+  background: url("../img/no-image.png") no-repeat;
+  width: 174px;
+  height: 205px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
 }
 
 .jedi-starfighter {
-  background: url("../img/vehicles.png") no-repeat -846px -1219px;
-  width: 30px;
-  height: 30px;
+  background: url(../img/vehicles.png) no-repeat -624px -1224px;
+  width: 256px;
+  height: 221px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
@@ -176,8 +175,8 @@
 }
 
 .h-type-nubian-yacht {
-  background: url("../img/vehicles.png") no-repeat -872px -2291px;
-  width: 605px;
+  background: url(../img/vehicles.png) no-repeat -1152px -2291px;
+  width: 365px;
   height: 274px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
@@ -185,9 +184,9 @@
 }
 
 .star-destroyer {
-  background: url("../img/vehicles.png") no-repeat -1088px -3902px;
-  width: 56px;
-  height: 64px;
+  background: url("../img/no-image.png") no-repeat;
+  width: 174px;
+  height: 205px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
@@ -195,9 +194,9 @@
 }
 
 .trade-federation-cruiser {
-  background: url("../img/vehicles.png") no-repeat -617px -4096px;
-  width: 30px;
-  height: 29px;
+  background: url(../img/vehicles.png) no-repeat -330px -4088px;
+  width: 288px;
+  height: 222px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
@@ -205,7 +204,7 @@
 }
 
 .theta-class-t-2c-shuttle {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  background: url("../img/no-image.png") no-repeat;
   width: 174px;
   height: 205px;
   @media screen and (max-width: $small-device) {
@@ -223,7 +222,7 @@
 }
 
 .droid-control-ship {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  background: url("../img/no-image.png") no-repeat;
   width: 174px;
   height: 205px;
   @media screen and (max-width: $small-device) {
@@ -232,43 +231,43 @@
 }
 
 .republic-assault-ship {
-  background: url("../img/vehicles.png") no-repeat -18px -2291px;
-  width: 513px;
-  height: 240px;
+  background: url(../img/vehicles.png) no-repeat -18px -2291px;
+  width: 295px;
+  height: 222px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
 }
 
 .solar-sailer {
-  background: url("../img/vehicles.png") no-repeat -18px -1923px;
-  width: 550px;
-  height: 305px;
+  background: url(../img/vehicles.png) no-repeat -31px -1973px;
+  width: 263px;
+  height: 286px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
 }
 
 .republic-attack-cruiser {
-  background: url("../img/vehicles.png") no-repeat -18px -2291px;
-  width: 513px;
-  height: 240px;
+  background: url("../img/no-image.png") no-repeat;
+  width: 174px;
+  height: 205px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
 }
 
 .naboo-star-skiff {
-  background: url("../img/vehicles.png") no-repeat -14px -1205px;
-  width: 250px;
-  height: 244px;
+  background: url("../img/no-image.png") no-repeat;
+  width: 174px;
+  height: 205px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
 }
 
 .jedi-interceptor {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  background: url("../img/no-image.png") no-repeat;
   width: 174px;
   height: 205px;
   @media screen and (max-width: $small-device) {
@@ -277,7 +276,7 @@
 }
 
 .arc-170 {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  background: url("../img/no-image.png") no-repeat;
   width: 174px;
   height: 205px;
   @media screen and (max-width: $small-device) {
@@ -286,7 +285,7 @@
 }
 
 .belbullab-22-starfighter {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
+  background: url("../img/no-image.png") no-repeat;
   width: 174px;
   height: 205px;
   @media screen and (max-width: $small-device) {
@@ -304,8 +303,8 @@
 }
 
 .cr90-corvette {
-  background: url("../img/vehicles.png") no-repeat -18px -2291px;
-  width: 513px;
+  background: url(../img/vehicles.png) no-repeat -290px -2293px;
+  width: 241px;
   height: 240px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
@@ -313,9 +312,9 @@
 }
 
 .banking-clan-frigate {
-  background: url("../img/vehicles.png") no-repeat -55px -747px;
-  width: 174px;
-  height: 205px;
+  background: url("../img/vehicles.png") no-repeat -861px -1457px;
+  width: 242px;
+  height: 214px;
   @media screen and (max-width: $small-device) {
     margin: 0 auto;
   }
