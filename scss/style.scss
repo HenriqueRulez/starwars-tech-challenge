@@ -1,15 +1,10 @@
-$primary-color: red;
-$base-padding: 20px;
-$base-margin: 20px;
-$base-border-radius: 6px;
-$base-shadow: rgba(255, 255, 255, 0.1);
-$small-device: 800px;
+@import 'variables';
 
 /** reset **/
 
 html {
   font-size: 62.5%;
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   background: #000;
 }
 
@@ -85,7 +80,7 @@ section {
       box-sizing: border-box;
       width: 100%;
 
-      > [type="text"] {
+      > [type='text'] {
         min-width: 80%;
         width: 100%;
         border: 0;
@@ -114,7 +109,7 @@ section {
         margin: 10px 0px 0px 0px;
       }
 
-      > [type="radio"] {
+      > [type='radio'] {
         display: inline;
 
         &:not(:checked),
@@ -319,7 +314,7 @@ section {
     }
 
     &-input {
-      > [type="text"] {
+      > [type='text'] {
         box-sizing: border-box;
         margin: $base-padding;
         border: 0;

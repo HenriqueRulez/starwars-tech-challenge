@@ -1,7 +1,7 @@
 /** reset **/
 html {
   font-size: 62.5%;
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   background: #000; }
 
 ::selection {
@@ -62,7 +62,7 @@ section {
   .search-box-input {
     box-sizing: border-box;
     width: 100%; }
-    .search-box-input > [type="text"] {
+    .search-box-input > [type='text'] {
       min-width: 80%;
       width: 100%;
       border: 0;
@@ -73,7 +73,7 @@ section {
       border-radius: 6px;
       background: rgba(255, 255, 255, 0.1);
       box-sizing: border-box; }
-      .search-box-input > [type="text"]:hover, .search-box-input > [type="text"]:focus {
+      .search-box-input > [type='text']:hover, .search-box-input > [type='text']:focus {
         border-bottom: 2px solid red;
         transition: 0.4s ease-in-out; }
   .search-box-parameters {
@@ -84,9 +84,9 @@ section {
       .search-box-parameters {
         padding: 0px;
         margin: 10px 0px 0px 0px; } }
-    .search-box-parameters > [type="radio"] {
+    .search-box-parameters > [type='radio'] {
       display: inline; }
-      .search-box-parameters > [type="radio"]:not(:checked), .search-box-parameters > [type="radio"]:checked {
+      .search-box-parameters > [type='radio']:not(:checked), .search-box-parameters > [type='radio']:checked {
         display: none; }
     .search-box-parameters > span {
       color: red;
@@ -228,7 +228,7 @@ section {
       font-size: 0.8rem;
       border-radius: 6px;
       padding: 3px; }
-    .modal-wapper-container-input > [type="text"] {
+    .modal-wapper-container-input > [type='text'] {
       box-sizing: border-box;
       margin: 20px;
       border: 0;
@@ -239,13 +239,13 @@ section {
       border-radius: 6px;
       background: rgba(255, 255, 255, 0.1); }
       @media screen and (max-width: 800px) {
-        .modal-wapper-container-input > [type="text"] {
+        .modal-wapper-container-input > [type='text'] {
           margin: 10px auto;
           flex: 1;
           margin-right: 10px; } }
-      .modal-wapper-container-input > [type="text"]::placeholder {
+      .modal-wapper-container-input > [type='text']::placeholder {
         color: #cc3333; }
-      .modal-wapper-container-input > [type="text"]:hover, .modal-wapper-container-input > [type="text"]:focus {
+      .modal-wapper-container-input > [type='text']:hover, .modal-wapper-container-input > [type='text']:focus {
         border-bottom: 2px solid red;
         transition: 0.4s ease-in-out; }
     .modal-wapper-container-input > button {
